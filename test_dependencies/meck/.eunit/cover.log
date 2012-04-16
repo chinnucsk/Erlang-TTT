@@ -1,0 +1,43 @@
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/cover_test_module.coverdata"]
+WARNING: Deleting data for module cover_test_module imported from
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/cover_test_module.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/cover_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/cover_test_module_meck_original.coverdata"]
+WARNING: Deleting data for module meck_test_module imported from
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata"]
+WARNING: Deleting data for module meck_test_module imported from
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+WARNING: Deleting data for module meck_test_module imported from
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+WARNING: Deleting data for module meck_test_module imported from
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+WARNING: remote cover_server received
+{<13137.43.0>,{is_compiled,meck_test_module}}
+WARNING: Deleting data for module meck_test_parametrized_module imported from
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_parametrized_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_parametrized_module_meck_original.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_parametrized_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_parametrized_module_meck_original.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_module_meck_original.coverdata"]
+Analysis includes data from imported files
+["/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_parametrized_module.coverdata",
+ "/Users/patrickgombert/Projects/erlangttt/test/meck/.eunit/meck_test_parametrized_module_meck_original.coverdata"]
