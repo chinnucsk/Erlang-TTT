@@ -1,0 +1,8 @@
+Installing Erlang:
+brew install erlang
+
+Installing Eunit:
+In order to run unit tests, eunit must be on the erlang path. I've included eunit 2.2 in this repository for simplicity, but feel free to checkout the working repository at https://github.com/richcarl/eunit.
+
+Touch ~/.erlang. This is where we will keep our erlang path. Add the folling as the contents of the file (filled in with the correct path):
+  code:add_pathz("/Users/path/to/this/repository/eunit/ebin").
