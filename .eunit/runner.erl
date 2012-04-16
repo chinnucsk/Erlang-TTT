@@ -1,8 +1,8 @@
 -module(runner).
--export([run/0, create_std_io_node/0]).
+-export([run/1]).
 
-run() ->
-  PidUI = create_std_io_node().
+run(io_device) ->
+  ui_interactor:greet(io_device),
+  PlayerXType = ui_interactor:get_player_type(io_device, x),
+  PlayerOType = ui_interactor:get_player_type(io_device, o).
 
-create_std_io_node() ->
-  ui:start({io_device, io}).

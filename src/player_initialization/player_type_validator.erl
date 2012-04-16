@@ -5,11 +5,11 @@ validate(human) ->
   validation_passed();
 validate(ai) ->
   validation_passed();
-validate(Other) ->
+validate(_) ->
   validation_failed().
 
 validation_passed() ->
-  {validation, passed}.
+  {success, true}.
 
 validation_failed() ->
-  {validation, failed}.
+  {success, false}.

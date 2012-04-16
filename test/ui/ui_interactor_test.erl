@@ -9,23 +9,23 @@ cleanup() ->
 
 greet_test() ->
   setup(),
-  meck:expect(mock_io, write, fun(_) -> ok end),
+  meck:expect(mock_io, fwrite, fun(_, _) -> ok end),
   ?assertEqual(ok, ui_interactor:greet(mock_io)),
   cleanup().
 
-set_player_type_for_x_test() ->
+get_player_type_for_x_test() ->
   setup(),
-  meck:expect(mock_io, write, fun(_) -> ok end),
-  PlayerType = 'Human',
-  meck:expect(mock_io, read, fun() -> PlayerType end),
-  ?assertEqual(PlayerType, ui_interactor:set_player_type(mock_io, x)),
+  meck:expect(mock_io, fwrite, fun(_, _) -> ok end),
+  PlayerType = human,
+  meck:expect(mock_io, fread, 2, PlayerType),
+  ?assertEqual(PlayerType, ui_interactor:get_player_type(mock_io, x)),
   cleanup().
 
-set_player_type_for_o_test() ->
+get_player_type_for_o_test() ->
   setup(),
-  meck:expect(mock_io, write, fun(_) -> ok end),
-  PlayerType = 'Human',
-  meck:expect(mock_io, read, fun() -> PlayerType end),
-  ?assertEqual(PlayerType, ui_interactor:set_player_type(mock_io, o)),
+  meck:expect(mock_io, fwrite, fun(_, _) -> ok end),
+  PlayerType = ai,
+  meck:expect(mock_io, fread, 2, PlayerType),
+  ?assertEqual(PlayerType, ui_interactor:get_player_type(mock_io, o)),
   cleanup().
 

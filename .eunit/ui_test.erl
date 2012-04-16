@@ -7,15 +7,22 @@ setup() ->
 cleanup() ->
   meck:unload(mock_io).
 
-input_test() ->
+atom_input_test() ->
   setup(),
   MockInput = 'test',
-  meck:expect(mock_io, read, fun() -> MockInput end),
-  ?assertEqual(MockInput, ui:input(mock_io)),
+  meck:expect(mock_io, fread, fun(_, "~a") -> MockInput end),
+  ?assertEqual(MockInput, ui:atom_input(mock_io)),
   cleanup().
 
-output_test() ->
+integer_input_test() ->
   setup(),
-  meck:expect(mock_io, write, fun(_) -> ok end),
-  ?assertEqual(ok, ui:output(mock_io, 'Message')),
+  MockInput = 1,
+  meck:expect(mock_io, fread, fun(_, "~d") -> MockInput end),
+  ?assertEqual(MockInput, ui:integer_input(mock_io)),
+  cleanup().
+
+string_output_test() ->
+  setup(),
+  meck:expect(mock_io, fwrite, fun("~s", _) -> ok end),
+  ?assertEqual(ok, ui:string_output(mock_io, 'Message')),
   cleanup().

@@ -1,12 +1,12 @@
 -module(ui).
--export([start/1, input/1, output/2]).
+-export([atom_input/1, integer_input/1, string_output/2]).
 
-start({io_device, IODevice}) ->
-  spawn(fun() -> ui_interactor:message_processing(IODevice) end).
+atom_input(IODevice) ->
+  apply(IODevice, fread, ['', "~a"]).
 
-input(IODevice) ->
-  apply(IODevice, read, []).
+integer_input(IODevice) ->
+  apply(IODevice, fread, ['', "~d"]).
 
-output(IODevice, Message) ->
-  apply(IODevice, write, [Message]).
+string_output(IODevice, Message) ->
+  apply(IODevice, fwrite, ["~s", Message]).
 

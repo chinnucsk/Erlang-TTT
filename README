@@ -19,7 +19,8 @@ Meck is a module mocking framework to be used with eunit. I've included meck 0.7
 
 Change directory into test/meck.
 Run the command rebar compile.
-Afterwards, run the command rebar eunit to test the eunit compatability. This might be a bit confusing since it runs an error report even if all test pass. Look for the following an indication that all went well:
+Afterwards, run the command: rebar eunit
+This is used to test the eunit compatability. This might be a bit confusing since it runs an error report even if all tests pass. Look for the following as an indication that all went well:
 ** Reason for termination == 
 ** expected_test_exit
 And further down:
