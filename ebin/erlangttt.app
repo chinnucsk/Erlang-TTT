@@ -5,4 +5,4 @@
               {applications,[kernel,stdlib]},
               {mod,{erlangttt_app,[]}},
               {env,[]},
-              {modules,[erlangttt_app,erlangttt_sup,ui]}]}.
+              {modules,[erlangttt_app,erlangttt_sup,runner,ui]}]}.

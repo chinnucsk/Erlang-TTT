@@ -1,16 +1,23 @@
 -module(ui).
--export([start/2]).
+-export([start/1, input/1, output/2]).
 
-start(io_device, return_pid) ->
-  spawn(fun() -> ui_loop(io_device, return_pid) end).
+start({io_device, IODevice}) ->
+  spawn(fun() -> ui_message_interactor(IODevice) end).
 
-ui_loop(io_device, return_pid) ->
+ui_message_interactor(IODevice) ->
   receive
     greet ->
-      greet(io_device);
+      output(IODevice, 'Welcome to Erlang TTT\n');
+    {setup_player, Pid, XorO} ->
+      output(IODevice, string:concat('What type of Player is? ', XorO);
     game_over ->
       ok
   end.
 
-greet(io_device) ->
-  io:write(io_device, 'Erlang Tic-Tac-Toe: New Game').
+input(IODevice) ->
+  apply(IODevice, read, []).
+
+output(IODevice, Message) ->
+  apply(IODevice, write, [Message]).
+
+
