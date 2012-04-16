@@ -2,30 +2,35 @@
 -include_lib("eunit/include/eunit.hrl").
 
 setup() ->
-  meck:new(mock_io).
+  meck:new(ui).
 
 cleanup() ->
-  meck:unload(mock_io).
+  meck:unload(ui).
 
 greet_test() ->
   setup(),
-  meck:expect(mock_io, fwrite, fun(_, _) -> ok end),
+  meck:expect(ui, string_output, fun(mock_io, _) -> ok end),
   ?assertEqual(ok, ui_interactor:greet(mock_io)),
   cleanup().
 
 get_player_type_for_x_test() ->
   setup(),
-  meck:expect(mock_io, fwrite, fun(_, _) -> ok end),
+  meck:expect(ui, string_output, fun(mock_io, _) -> ok end),
   PlayerType = human,
-  meck:expect(mock_io, fread, 2, PlayerType),
+  meck:expect(ui, atom_input, fun(mock_io) -> PlayerType end),
   ?assertEqual(PlayerType, ui_interactor:get_player_type(mock_io, x)),
   cleanup().
 
 get_player_type_for_o_test() ->
   setup(),
-  meck:expect(mock_io, fwrite, fun(_, _) -> ok end),
+  meck:expect(ui, string_output, fun(mock_io, _) -> ok end),
   PlayerType = ai,
-  meck:expect(mock_io, fread, 2, PlayerType),
+  meck:expect(ui, atom_input, fun(mock_io) -> PlayerType end),
   ?assertEqual(PlayerType, ui_interactor:get_player_type(mock_io, o)),
   cleanup().
 
+inform_player_type_invalid_test() ->
+  setup(),
+  meck:expect(ui, string_output, fun(mock_io, _) -> ok end),
+  ?assertEqual(ok, ui_interactor:inform_player_type_invalid(mock_io)),
+  cleanup().

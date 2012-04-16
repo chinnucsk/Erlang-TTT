@@ -9,8 +9,8 @@ cleanup() ->
 
 atom_input_test() ->
   setup(),
-  MockInput = 'test',
-  meck:expect(mock_io, fread, fun(_, "~a") -> MockInput end),
+  MockInput = test,
+  meck:expect(mock_io, fread, fun(_, "~a") -> {ok, [MockInput]} end),
   ?assertEqual(MockInput, ui:atom_input(mock_io)),
   cleanup().
 
@@ -23,6 +23,6 @@ integer_input_test() ->
 
 string_output_test() ->
   setup(),
-  meck:expect(mock_io, fwrite, fun("~s", _) -> ok end),
+  meck:expect(mock_io, fwrite, fun(_) -> ok end),
   ?assertEqual(ok, ui:string_output(mock_io, 'Message')),
   cleanup().
