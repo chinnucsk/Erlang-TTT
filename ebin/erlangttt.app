@@ -5,6 +5,6 @@
               {applications,[kernel,stdlib]},
               {mod,{erlangttt_app,[]}},
               {env,[]},
-              {modules,[erlangttt_app,erlangttt_sup,runner,ui,
-                        ui_interactor, player_type_validator,
-                        player_type_importer, player_type_interactor]}]}.
+              {modules,[erlangttt_app,erlangttt_sup,runner,std_io,
+                        ui_interactor,player_type_validator,
+                        player_type_importer,player_type_interactor]}]}.

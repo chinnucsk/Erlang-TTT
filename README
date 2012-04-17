@@ -39,4 +39,4 @@ From the root of the project run the commnad:
  rebar compile && erl -pa ebin/
 You are now inside the erlang shell. Run the command:
  runner:run(std_io).
-This will begin the game loop with std_io as the ui.
+This will begin the game loop with standard I/O as the ui.

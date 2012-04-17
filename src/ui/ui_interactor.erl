@@ -2,7 +2,7 @@
 -export([greet/1, get_player_type/2, inform_player_type_invalid/1]).
 
 greet(IODevice) ->
-  ui:string_output(IODevice, "Welcome to Erlang TTT\n").
+  apply(IODevice, flash, ["Welcome to Erlang TTT\n"]).
 
 get_player_type(IODevice, PlayerCharacter) ->
   prompt_player_type(IODevice, PlayerCharacter),
@@ -13,12 +13,12 @@ prompt_player_type(IODevice, PlayerCharacter) ->
     x -> "Player x";
     o -> "Player o"
   end,
-  UserQuery = string:concat(PlayerCharacterString, " is human or ai?\n"),
-  ui:string_output(IODevice, UserQuery).
+  UserQuery = string:concat(PlayerCharacterString, " is Human or Ai?\n"),
+  apply(IODevice, prompt, [UserQuery]).
 
 retrieve_player_type(IODevice) ->
-  PlayerType = ui:atom_input(IODevice),
+  PlayerType = apply(IODevice, atom_input, []),
   player_type_importer:import(PlayerType).
 
 inform_player_type_invalid(IODevice) ->
-  ui:string_output(IODevice, "Player Type is invalid\nTry either Human or AI\n").
+  apply(IODevice, flash, ["Player Type is invalid\nTry either Human or AI\n"]).
