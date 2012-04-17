@@ -8,4 +8,4 @@
               {modules,[erlangttt_app,erlangttt_sup,runner,std_io,
                         ui_interactor,player_type_validator,
                         player_type_importer,player_type_interactor,
-                        game_record]}]}.
+                        game_record,game_server,game_client]}]}.

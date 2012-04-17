@@ -13,7 +13,7 @@ prompt_player_type(IODevice, PlayerCharacter) ->
     x -> "Player x";
     o -> "Player o"
   end,
-  UserQuery = string:concat(PlayerCharacterString, " is a Human or Ai?\n"),
+  UserQuery = string:concat(PlayerCharacterString, " is a Human or AI?\n"),
   apply(IODevice, prompt, [UserQuery]).
 
 retrieve_player_type(IODevice) ->

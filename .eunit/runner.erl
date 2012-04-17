@@ -5,7 +5,6 @@ run(std_io) ->
   run(io_device, std_io).
 
 run(io_device, IODevice) ->
-  ui_interactor:greet(IODevice),
-  PlayerXType = player_type_interactor:player_type(IODevice, x),
-  PlayerOType = player_type_interactor:player_type(IODevice, o).
+  GameServerPid = game_server:start(),
+  game_client:start(GameServerPid, self(), IODevice).
 
