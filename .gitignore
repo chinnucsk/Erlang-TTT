@@ -1,2 +1,2 @@
-*.beam
-.eunit
+./*.beam
+./.eunit
