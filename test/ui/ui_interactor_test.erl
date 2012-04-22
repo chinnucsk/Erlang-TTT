@@ -34,3 +34,17 @@ inform_player_type_invalid_test() ->
   meck:expect(mock_ui, flash, fun(_) -> ok end),
   ?assertEqual(ok, ui_interactor:inform_player_type_invalid(mock_ui)),
   cleanup().
+
+take_space_test() ->
+  setup(),
+  meck:expect(mock_ui, prompt, fun(_) -> ok end),
+  meck:expect(mock_ui, integer_input, fun() -> 1 end),
+  Space = ui_interactor:take_space(mock_ui, x),
+  ?assertEqual({1, 1}, Space),
+  cleanup().
+
+inform_move_invalid_test() ->
+  setup(),
+  meck:expect(mock_ui, flash, fun(_) -> ok end),
+  ?assertEqual(ok, ui_interactor:inform_move_invalid(mock_ui)),
+  cleanup().

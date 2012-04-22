@@ -5,9 +5,9 @@ invoke_game_server_and_client_test() ->
   IODevice = std_io,
   meck:new(game_server),
   GameServerPid = 1,
-  meck:expect(game_server, start, 0, GameServerPid),
+  meck:expect(game_server, start, 1, GameServerPid),
   meck:new(game_client),
-  meck:expect(game_client, start, fun(GameServerPid, SelfPid, IODevice) -> ok end),
+  meck:expect(game_client, start, fun(GameServerPid, _, IODevice) -> ok end),
   runner:run(IODevice),
   meck:unload(game_server),
   meck:unload(game_client).

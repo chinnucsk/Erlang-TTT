@@ -31,8 +31,8 @@ As with eunit, we must add meck to the erlang path. Open ~/.erlang and add the f
 
 Running Tic Tac Toe Tests:
 From the root of this project run the command:
- rebar compile eunit
-This will compile the project and run all eunit tests.
+ rebar compile eunit --verbose
+This will compile the project and run all eunit tests with per test feedback.
 
 Running Tic Tac Toe:
 From the root of the project run the commnad:
