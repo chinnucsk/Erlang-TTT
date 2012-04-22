@@ -18,3 +18,6 @@ import_AI_test() ->
 
 import_fail_test() ->
   ?assertEqual(fail, player_type_importer:import(fail)).
+
+valid_player_types() ->
+  ?assertEqual([ai, human], player_type_importer:valid_player_types()).

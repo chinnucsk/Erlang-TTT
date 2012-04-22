@@ -48,3 +48,9 @@ inform_move_invalid_test() ->
   meck:expect(mock_ui, flash, fun(_) -> ok end),
   ?assertEqual(ok, ui_interactor:inform_move_invalid(mock_ui)),
   cleanup().
+
+print_board_test() ->
+  setup(),
+  meck:expect(mock_ui, flash, fun(_) -> ok end),
+  ?assertEqual([ok], ui_interactor:print_board(mock_ui, [[x]])),
+  cleanup().

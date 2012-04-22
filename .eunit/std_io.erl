@@ -11,10 +11,10 @@ string_output(Message) ->
   io:fwrite(Message).
 
 atom_input() ->
-  input_return(io:fread('', "~a"), atom_input, "Invalid Input, Try Again").
+  input_return(io:fread('', "~a"), atom_input, "Invalid input, try again.\n").
 
 integer_input() ->
-  input_return(io:fread('', "~d"), integer_input, "Invalid Input, Input Must Be An Integer").
+  input_return(io:fread('', "~d"), integer_input, "Invalid input, must be an integer. Try again.\n").
 
 input_return(ResponseMessage, Caller, FailMessage) ->
   {Type, Response} = ResponseMessage,

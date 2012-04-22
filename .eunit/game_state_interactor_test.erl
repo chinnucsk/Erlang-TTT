@@ -34,7 +34,7 @@ take_turn_human_test() ->
   GameState = game_record:set_player_type(game_record:new_game(1), {x, human}),
   meck:new(ui_interactor),
   meck:expect(ui_interactor, take_space, fun(mock_io, Turn) -> {1, 1} end),
-  meck:expect(ui_interactor, print_board, 1, ok),
+  meck:expect(ui_interactor, print_board, 2, ok),
   NewGameState = game_state_interactor:take_turn(mock_io, GameState),
   ?assertEqual([[Turn]], game_record:get_board(NewGameState)),
   cleanup().

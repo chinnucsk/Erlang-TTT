@@ -14,7 +14,7 @@ update(IODevice, GameState) ->
   end.
 
 update_player_type(IODevice, OldGameState, PlayerCharacter) ->
-  PlayerType = ui_interactor:get_player_type(IODevice, PlayerCharacter),
+  PlayerType = player_type_interactor:player_type(IODevice, PlayerCharacter),
   NewGameState = game_record:set_player_type(OldGameState, {PlayerCharacter, PlayerType}),
   NewGameState.
 
@@ -26,7 +26,7 @@ update_in_progress(IODevice, GameState) ->
   end.
 
 take_turn(IODevice, GameState) ->
-  ui_interactor:print_board(game_record:get_board(GameState)),
+  ui_interactor:print_board(IODevice, game_record:get_board(GameState)),
   PlayerTurn = game_record:get_player_turn(GameState),
   TurnSpace = retrieve_player_turn_space(IODevice, GameState, PlayerTurn),
   ValidMove = board:is_open_space(game_record:get_board(GameState), TurnSpace),

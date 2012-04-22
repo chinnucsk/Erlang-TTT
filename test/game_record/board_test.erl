@@ -21,6 +21,14 @@ is_open_space_false_test() ->
   Board = [[taken]],
   ?assertNot(board:is_open_space(Board, {1, 1})).
 
+is_open_space_negative_out_of_bounds_test() ->
+  Board = [[space]],
+  ?assertNot(board:is_open_space(Board, {-1, -1})).
+
+is_open_space_outside_of_board_test() ->
+  Board = [[space]],
+  ?assertNot(board:is_open_space(Board, {2, 2})).
+
 take_space_test() ->
   Board = [[game_record:untaken_space()]],
   NewBoard = board:take_space(Board, {1, 1}, x),
@@ -34,4 +42,5 @@ take_space_3_sized_board_test() ->
                 [Empty, x, Empty],
                 [Empty, Empty, Empty]],
               NewBoard).
+
 

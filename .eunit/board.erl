@@ -9,7 +9,16 @@ row(BoardSize) ->
 
 is_open_space(Board, Space) ->
   {Row, Column} = Space,
-  game_record:untaken_space() == lists:nth(Column, lists:nth(Row, Board)).
+  InBounds = in_bounds(Row, Column, length(Board)),
+  case InBounds of
+    true -> game_record:untaken_space() == lists:nth(Column, lists:nth(Row, Board));
+    false -> false
+  end.
+
+in_bounds(Row, Column, BoardDimension) ->
+  Positive = (Row > 0) and (Column > 0),
+  OnBoard = (Row =< BoardDimension) and (Column =< BoardDimension),
+  Positive and OnBoard.
 
 take_space(Board, Space, PlayerCharacter) ->
   {Row, Column} = Space,
