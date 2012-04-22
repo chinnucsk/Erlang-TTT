@@ -43,10 +43,6 @@ inform_move_invalid(IODevice) ->
   apply(IODevice, flash, ["That's not a valid move!\n"]).
 
 print_board(IODevice, Board) ->
-  lists:map(print_row(IODevice), Board).
-
-print_row(IODevice) ->
-  fun(Row) ->
-      apply(IODevice, flash, [lists:concat(Row)]),
-      apply(IODevice, flash, ["\n"]) end.
+  BoardString = board:to_string(Board),
+  apply(IODevice, flash, [BoardString]).
 

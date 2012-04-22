@@ -43,4 +43,15 @@ take_space_3_sized_board_test() ->
                 [Empty, Empty, Empty]],
               NewBoard).
 
+print_board_1_element_test() ->
+  Board = board:create(1),
+  BoardString = board:to_string(Board),
+  ?assertEqual("  1|\n----\n1|_|\n\n", BoardString).
+
+print_board_3_element_test() ->
+  Board = [[x, o, x],
+           [o, game_record:untaken_space(), o],
+           [x, x, o]],
+  BoardString = board:to_string(Board),
+  ?assertEqual("  1|2|3|\n--------\n1|x|o|x|\n2|o|_|o|\n3|x|x|o|\n\n", BoardString).
 
