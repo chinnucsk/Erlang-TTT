@@ -54,3 +54,4 @@ print_board_test() ->
   meck:expect(mock_ui, flash, fun(_) -> ok end),
   ?assertEqual(ok, ui_interactor:print_board(mock_ui, [[x]])),
   cleanup().
+

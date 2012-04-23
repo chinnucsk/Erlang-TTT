@@ -29,9 +29,10 @@ vertical_winner_1_element_test() ->
   ?assertEqual(x, CharacterValue).
 
 vertical_winner_3_element_test() ->
-  Board = [[x, o, x],
-           [x, o, o],
-           [x, x, o]],
+  Empty = game_record:untaken_space(),
+  Board = [[x, o,     x    ],
+           [x, o,     o    ],
+           [x, Empty, Empty]],
   {Winner, CharacterValue} = game_rules:vertical_winner(Board),
   ?assert(Winner),
   ?assertEqual(x, CharacterValue).

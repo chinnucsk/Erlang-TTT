@@ -21,7 +21,9 @@ update_player_type(IODevice, OldGameState, PlayerCharacter) ->
 update_in_progress(IODevice, GameState) ->
   EndState = game_rules:end_game(game_record:get_board(GameState)),
   case EndState of
-    {true, End} -> {end_game, End};
+    {true, End} ->
+      ui_interactor:print_board(IODevice, game_record:get_board(GameState)),
+      {end_game, End};
     false -> take_turn(IODevice, GameState)
   end.
 
@@ -45,5 +47,7 @@ retrieve_player_turn_space(IODevice, GameState, PlayerTurn) ->
       ui_interactor:take_space(IODevice, PlayerTurn);
     ai ->
       Board = game_record:get_board(GameState),
-      ai:take_space(GameState, PlayerTurn)
+      AI = PlayerTurn,
+      Opponent = game_record:get_player_turn(game_record:switch_player_turn(GameState)),
+      ai:take_space(Board, AI, Opponent)
   end.

@@ -3,7 +3,7 @@
 
 create_1_x_1_test() ->
   Board = board:create(1),
-  ?assertEqual([[empty]], Board).
+  ?assertEqual([[game_record:untaken_space()]], Board).
 
 create_3_x_3_test() ->
   Empty = game_record:untaken_space(),
@@ -35,12 +35,14 @@ take_space_test() ->
   ?assertEqual([[x]], NewBoard).
 
 take_space_3_sized_board_test() ->
-  Board = board:create(3),
-  NewBoard = board:take_space(Board, {2, 2}, x),
   Empty = game_record:untaken_space(),
-  ?assertEqual([[Empty, Empty, Empty],
-                [Empty, x, Empty],
-                [Empty, Empty, Empty]],
+  Board = [[x, o,     Empty],
+           [o, Empty, o],
+           [x, Empty, Empty]],
+  NewBoard = board:take_space(Board, {2, 2}, x),
+  ?assertEqual([[x, o,     Empty],
+                [o, x,     o],
+                [x, Empty, Empty]],
               NewBoard).
 
 print_board_1_element_test() ->
@@ -49,9 +51,10 @@ print_board_1_element_test() ->
   ?assertEqual("  1|\n----\n1|_|\n\n", BoardString).
 
 print_board_3_element_test() ->
-  Board = [[x, o, x],
-           [o, game_record:untaken_space(), o],
-           [x, x, o]],
+  Empty = game_record:untaken_space(),
+  Board = [[x, o,     x],
+           [o, Empty, o],
+           [x, x,     o]],
   BoardString = board:to_string(Board),
   ?assertEqual("  1|2|3|\n--------\n1|x|o|x|\n2|o|_|o|\n3|x|x|o|\n\n", BoardString).
 

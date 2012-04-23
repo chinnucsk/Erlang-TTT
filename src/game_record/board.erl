@@ -24,15 +24,13 @@ in_bounds(Row, Column, BoardDimension) ->
 
 take_space(Board, Space, PlayerCharacter) ->
   {Row, Column} = Space,
-  NewRow = change_nth(Column, lists:nth(Column, Board), PlayerCharacter),
+  NewRow = change_nth(Column, lists:nth(Row, Board), PlayerCharacter),
   NewBoard = change_nth(Row, Board, NewRow),
   NewBoard.
 
-change_nth(Column, OldList, NewValue) ->
-  Tail = lists:nthtail(Column, OldList),
-  Reverse = lists:reverse(OldList),
-  Length = length(OldList),
-  Head = lists:nthtail(Length-Column+1, Reverse),
+change_nth(Location, OldList, NewValue) ->
+  Head = lists:sublist(OldList, Location-1),
+  Tail = lists:nthtail(Location, OldList),
   Head ++ [NewValue] ++ Tail.
 
 to_string(Board) ->
