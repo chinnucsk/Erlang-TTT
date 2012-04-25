@@ -44,7 +44,7 @@ retrieve_player_turn_space(IODevice, GameState, PlayerTurn) ->
   PlayerType = game_record:get_player_type(GameState, PlayerTurn),
   case PlayerType of
     human ->
-      ui_interactor:take_space(IODevice, PlayerTurn);
+      human:take_space(IODevice, PlayerTurn);
     ai ->
       Board = game_record:get_board(GameState),
       AI = PlayerTurn,
