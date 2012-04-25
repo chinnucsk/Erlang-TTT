@@ -15,7 +15,7 @@ event() ->
       GameState = game_state_interactor:update(IODevice, GameRecord),
       case GameState of
         {end_game, EndState} ->
-          ui_interactor:end_game(EndState),
+          ui_interactor:end_game(IODevice, EndState),
           end_game(Pid);
         _ -> continue_game(Pid, GameState)
       end

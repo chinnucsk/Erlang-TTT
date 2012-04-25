@@ -10,4 +10,4 @@
                         player_type_importer,player_type_interactor,
                         game_record,game_server,game_client,
                         game_state_interactor,game_rules,board,
-                        ai,special_case]}]}.
+                        ai,special_case,game_loop]}]}.
