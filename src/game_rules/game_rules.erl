@@ -1,6 +1,7 @@
 -module(game_rules).
 -export([end_game/1]).
--export([horizontal_winner/1, vertical_winner/1, diagonal_winner/1, draw/1]).
+-export([horizontal_winner/1, vertical_winner/1, diagonal_winner/1]).
+-export([draw/1]).
 
 end_game(Board, [draw]) ->
   Draw = game_rules:draw(Board),
@@ -52,7 +53,7 @@ diagonal_winner(Board) ->
   if
     LeftToRightAllEqual -> {true, lists:last(LeftToRightList)};
     RightToLeftAllEqual -> {true, lists:last(RightToLeftList)};
-    true -> false % true is used for 'else' in Erlang if constructs
+    true -> false
   end.
 
 diagonal_list([], _, AccumulatedList) ->

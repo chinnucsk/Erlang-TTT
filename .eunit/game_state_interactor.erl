@@ -1,6 +1,7 @@
 -module(game_state_interactor).
 -export([update/2]).
--export([update_player_type/3, take_turn/2, retrieve_player_turn_space/3]).
+-export([update_player_type/3]).
+-export([take_turn/2, retrieve_player_turn_space/3]).
 -include("../game_record/game_record.hrl").
 
 update(IODevice, GameState) ->
