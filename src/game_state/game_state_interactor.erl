@@ -5,10 +5,12 @@
 -include("../game_record/game_record.hrl").
 
 update(IODevice, GameState) ->
+  XPlayerType = game_record:get_player_type(GameState, x),
+  OPlayerType = game_record:get_player_type(GameState, o),
   if
-    GameState#game.player_x_type == undefined ->
+    XPlayerType == undefined ->
       update_player_type(IODevice, GameState, x);
-    GameState#game.player_o_type == undefined ->
+    OPlayerType == undefined ->
       update_player_type(IODevice, GameState, o);
     true ->
       update_in_progress(IODevice, GameState)
