@@ -3,6 +3,7 @@
 -export([get_player_type/2, inform_player_type_invalid/1]).
 -export([take_space/2, inform_move_invalid/1]).
 -export([print_board/2]).
+-export([end_game/2]).
 
 greet(IODevice) ->
   apply(IODevice, flash, ["Welcome to Erlang TTT\n"]).
@@ -34,7 +35,7 @@ take_space(IODevice, PlayerCharacter) ->
   {Row, Column}.
 
 player_string(PlayerCharacter) ->
-  PlayerCharacterString = case PlayerCharacter of
+  case PlayerCharacter of
     x -> "Player x";
     o -> "Player o"
   end.
@@ -46,3 +47,11 @@ print_board(IODevice, Board) ->
   BoardString = board:to_string(Board),
   apply(IODevice, flash, [BoardString]).
 
+end_game(IODevice, EndState) ->
+  case EndState of
+    draw -> apply(IODevice, flash, ["It's a draw\n"]);
+    _ ->
+      PlayerCharacterString = player_string(EndState),
+      WinnerOutput = string:concat(PlayerCharacterString, " wins!\n"),
+      apply(IODevice, flash, [WinnerOutput])
+  end.

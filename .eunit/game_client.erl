@@ -11,7 +11,7 @@ event_loop(GameServerPid, IODevice) ->
   receive
     {continue, UpdatedGameRecord} ->
       send_update(GameServerPid, self(), IODevice, UpdatedGameRecord);
-    {game_over, _} ->
+    game_over ->
       exit(self(), kill)
   end,
   event_loop(GameServerPid, IODevice).

@@ -55,3 +55,15 @@ print_board_test() ->
   ?assertEqual(ok, ui_interactor:print_board(mock_ui, [[x]])),
   cleanup().
 
+end_game_test_draw_test() ->
+  setup(),
+  meck:expect(mock_ui, flash, fun("It's a draw\n") -> ok end),
+  ?assertEqual(ok, ui_interactor:end_game(mock_ui, draw)),
+  cleanup().
+
+end_game_no_draw_test() ->
+  setup(),
+  Winner = x,
+  meck:expect(mock_ui, flash, fun("Player x wins!\n") -> ok end),
+  ?assertEqual(ok, ui_interactor:end_game(mock_ui, Winner)),
+  cleanup().
