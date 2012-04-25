@@ -9,4 +9,4 @@
                         ui_interactor,player_type_validator,
                         player_type_importer,player_type_interactor,
                         game_record,game_state_interactor,game_rules,
-                        board,ai,special_case,game_loop]}]}.
+                        board,human,ai,special_case,game_loop]}]}.
