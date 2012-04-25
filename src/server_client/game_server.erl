@@ -16,8 +16,7 @@ event() ->
       case GameState of
         {end_game, _} -> end_game(Pid, GameState);
         _ -> continue_game(Pid, GameState)
-      end;
-    kill_server -> exit(self(), kill)
+      end
   end,
   event().
 
@@ -25,4 +24,5 @@ continue_game(Pid, GameRecord) ->
   Pid ! {continue, GameRecord}.
 
 end_game(Pid, EndState) ->
-  Pid ! {game_over, EndState}.
+  Pid ! {game_over, EndState},
+  exit(self(), kill).
