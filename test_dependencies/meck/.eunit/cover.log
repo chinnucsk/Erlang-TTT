@@ -25,7 +25,7 @@ WARNING: Deleting data for module meck_test_module imported from
 ["/Users/patrickgombert/Projects/erlangttt/test_dependencies/meck/.eunit/meck_test_module.coverdata",
  "/Users/patrickgombert/Projects/erlangttt/test_dependencies/meck/.eunit/meck_test_module_meck_original.coverdata"]
 WARNING: remote cover_server received
-{<13137.43.0>,{is_compiled,meck_test_module}}
+{<13143.43.0>,{is_compiled,meck_test_module}}
 WARNING: Deleting data for module meck_test_parametrized_module imported from
 ["/Users/patrickgombert/Projects/erlangttt/test_dependencies/meck/.eunit/meck_test_parametrized_module.coverdata",
  "/Users/patrickgombert/Projects/erlangttt/test_dependencies/meck/.eunit/meck_test_parametrized_module_meck_original.coverdata"]

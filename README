@@ -8,20 +8,21 @@ brew install --HEAD rebar
 Installing Eunit:
 In order to run unit tests, eunit must be on the erlang path. I've included eunit 2.2 in this repository for simplicity, but feel free to checkout the working repository at https://github.com/richcarl/eunit.
 
-Change directory into test_dependencies/eunit
+Change directory into test_dependencies/eunit.
 Run the command: rebar compile
 
-Next, touch ~/.erlang. This is where we will keep our erlang path. Add the following as the contents of the file (filled in with the correct path):
+Next, run the command: touch ~/.erlang.
+This is where we will keep our erlang path. Add the following as the contents of the file (filled in with the correct path):
   code:add_pathz("/Users/path/to/this/repository/test_dependencies/eunit/ebin").
 
 Installing Meck:
 Meck is a module mocking framework to be used with eunit. I've included meck 0.7.1 in this repository for simplicity, but feel free to checkout the working repository at https://github.com/eproxus/meck.
 
-Change directory into test/meck.
-Run the command rebar compile.
+Change directory into test_dependencies/meck.
+Run the command rebar compile
 Afterwards, run the command: rebar eunit
 This is used to test the eunit compatability. This might be a bit confusing since it runs an error report even if all tests pass. Look for the following as an indication that all went well:
-** Reason for termination == 
+** Reason for termination ==
 ** expected_test_exit
 And further down:
 All 89 tests passed.
@@ -39,4 +40,4 @@ From the root of the project run the commnad:
  rebar compile && erl -pa ebin/
 You are now inside the erlang shell. Run the command:
  runner:run(std_io).
-This will begin the game loop with standard I/O as the ui.
+This will begin the game with standard I/O as the ui.
