@@ -95,7 +95,7 @@ end_game_winner_test() ->
 
 end_game_draw_test() ->
   Board = [[o, x, o],
-           [x, o, x],
+           [o, x, x],
            [x, o, x]],
   {Over, EndState} = game_rules:end_game(Board),
   ?assert(Over),

@@ -1,22 +1,13 @@
 -module(special_case_test).
 -include_lib("eunit/include/eunit.hrl").
 
-check_3_element_no_moves_test() ->
+check_3_element_no_special_cases_test() ->
   AI = x,
   Opponent = o,
   Empty = game_record:untaken_space(),
   Board = [[AI   , Opponent, Empty],
            [Empty, Empty,    Empty],
            [Empty, Empty,    Empty]],
-  ?assertNot(special_case:check(Board, AI, Opponent)).
-
-check_3_element_no_fork_test() ->
-  AI = x,
-  Opponent = o,
-  Empty = game_record:untaken_space(),
-  Board = [[AI,       Empty,    Empty],
-           [Empty,    Opponent, Empty],
-           [Opponent, Opponent, Empty]],
   ?assertNot(special_case:check(Board, AI, Opponent)).
 
 check_3_element_fork_upper_left_lower_right_test() ->

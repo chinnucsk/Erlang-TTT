@@ -16,16 +16,6 @@ take_space_3_element_test() ->
   Space = ai:take_space(Board, AI, Opponent),
   ?assertEqual({1, 1}, Space).
 
-take_space_3_element_win_or_lose_test() ->
-  AI = o,
-  Opponent = x,
-  Empty = game_record:untaken_space(),
-  Board = [[o, x,     o],
-           [x, x,     o],
-           [x, Empty, Empty]],
-  Space = ai:take_space(Board, AI, Opponent),
-  ?assertEqual({3, 3}, Space).
-
 take_space_for_the_win_test() ->
   AI = x,
   Opponent = o,
@@ -53,13 +43,27 @@ take_space_prefer_win_to_block_loss_test() ->
            [Empty, Empty, Empty   ]],
   ?assertEqual({3, 2}, ai:take_space(Board, AI, Opponent)).
 
-take_space_avoid_fork_test() ->
+take_space_avoid_fork_upper_left_lower_right_test() ->
   AI = o,
   Opponent = x,
   Empty = game_record:untaken_space(),
   Board = [[Opponent, Empty, Empty   ],
            [Empty,    AI,    Empty   ],
            [Empty,    Empty, Opponent]],
+  Space = ai:take_space(Board, AI, Opponent),
+  ForkBlock = (Space == {1, 2})
+           or (Space == {2, 1})
+           or (Space == {2, 3})
+           or (Space == {3, 2}),
+  ?assert(ForkBlock).
+
+take_space_avoid_fork_upper_right_lower_left_test() ->
+  AI = o,
+  Opponent = x,
+  Empty = game_record:untaken_space(),
+  Board = [[Empty,    Empty, Opponent],
+           [Empty,    AI,    Empty   ],
+           [Opponent, Empty, Empty   ]],
   Space = ai:take_space(Board, AI, Opponent),
   ForkBlock = (Space == {1, 2})
            or (Space == {2, 1})

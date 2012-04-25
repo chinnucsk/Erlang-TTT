@@ -40,10 +40,7 @@ to_string(Board) ->
   Header ++ Body.
 
 header_string(Length) ->
-  FirstRow = string:concat("  ", first_row(Length)),
-  SecondRowLength = Length * 2 + 2,
-  SecondRow = string:concat(string:copies("-", SecondRowLength), "\n"),
-  string:concat(FirstRow, SecondRow).
+  string:concat("  ", first_row(Length)).
 
 first_row(Length) ->
   first_row(Length, "", 1).

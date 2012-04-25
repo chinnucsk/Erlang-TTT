@@ -2,11 +2,16 @@
 -include_lib("eunit/include/eunit.hrl").
 -include("../../src/game_record/game_record.hrl").
 
+untaken_space_test() ->
+  ?assertEqual(empty, game_record:untaken_space()).
+
 new_game_must_pass_integer_test() ->
   ?assertError(function_clause, game_record:new_game(fail)).
 
-new_game_must_be_positive_test() ->
-  ?assertError(function_clause, game_record:new_game(-1)),
+new_game_must_pass_positive_test() ->
+  ?assertError(function_clause, game_record:new_game(-1)).
+
+new_game_must_pass_greater_than_zero_test() ->
   ?assertError(function_clause, game_record:new_game(0)).
 
 new_game_default_to_turn_x_test() ->
