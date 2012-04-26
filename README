@@ -28,7 +28,7 @@ And further down:
 All 89 tests passed.
 
 As with eunit, we must add meck to the erlang path. Open ~/.erlang and add the following line:
-  code:add_pathz("/Users/path/to/this/repository/tests/meck/ebin").
+  code:add_pathz("/Users/path/to/this/repository/test_dependencies/meck/ebin").
 
 Running Tic Tac Toe Tests:
 From the root of this project run the command:
